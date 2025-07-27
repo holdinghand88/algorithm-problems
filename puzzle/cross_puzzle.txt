@@ -1,0 +1,72 @@
+You are playing a puzzle. This puzzle is played on a board with H rows and 5 columns of cells as shown below. Each cell contains a block with a number from "1" to "9". The following diagram shows the board in input example 1.
+.214.
+1321.
+33311
+13214
+33324
+These blocks are eliminated together with the adjacent blocks if all adjacent cells have blocks and all of them have the same number. However, a cell adjacent to a cell is a cell that exists on the board, and refers to a cell that is located above, below, left, or right of the cell. In addition, if multiple blocks like this exist at the same time, all related blocks are eliminated at the same time. For example, in input example 1, blocks are eliminated as shown below.
+ .214.
+1.21.
+...11
+1.214 
+...24
+Furthermore, if there is no block below it, each block falls until it reaches the top of other blocks or the bottom of the board. For example, after the first block is eliminated in input example 1, blocks fall as shown below.
+...4.
+...1.
+..111
+1.214
+12224
+What you want to know is what the board state will look like after you have erased blocks and reversed the falls as much as possible. Write a program that outputs that. For example, the result of input example 1 will be:
+.....
+.....
+.....
+1....
+1....
+
+-----------------
+
+input param:
+H
+S_1
+...
+S_H
+・ The first line is given an integer H that represents the number of rows on the board.
+・ The 1 + ith line (1 <= i <= H) of the following H lines is given a string S_i of length 5 that represents the information on the ith row of the board.
+・The jth (1 <= j <= 5) character of S_i represents the i-th row and j-th column of the board, where "." indicates that there is no block, and a digit character from "1" to "9" indicates that there is a block with that number engraved on it.
+・There will be a total of H + 1 lines of input, and a line break will be inserted at the end of the final line of input values.
+
+Expected Output:
+Output the board state after repeating the erasure and falling of blocks as many times as possible. Insert a newline at the end, and do not include unnecessary characters or blank lines.
+
+The following conditions are satisfied in all test cases.
+・ 2 <= H <= 10
+・ (Length of S_i) = 5 (1 <= i <= H)
+・ S_i consists only of the symbol "." or the number characters from "1" to "9" (1 <= i <= H)
+・ There are no falling blocks on the input board. Please check here for details on runtime restrictions by language.
+-------------------
+Example:
+input example1:
+5
+.214.
+1321.
+33311
+13214
+33324
+output example1:
+.....
+.....
+.....
+1....
+1....
+
+input example2:
+4
+51533
+11131
+21343
+22444
+output example2:
+.....
+.....
+....3
+5.5.1
